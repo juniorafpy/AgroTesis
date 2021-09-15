@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StockPajuelas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa2097c9-59df-4896-aee3-eca14fb9b692">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     stockpajuelas.`id` AS stockpajuelas_id,
+     stockpajuelas.`idToro` AS stockpajuelas_idToro,
+     stockpajuelas.`Stock` AS stockpajuelas_Stock,
+     toro.`Nombre` AS toro_Nombre,
+     toro.`RP` AS toro_RP,
+     toro.`HBP` AS toro_HBP
+FROM
+     `toro` toro INNER JOIN `stockpajuelas` stockpajuelas ON toro.`id` = stockpajuelas.`idToro`]]>
+	</queryString>
+	<field name="stockpajuelas_id" class="java.lang.Integer"/>
+	<field name="stockpajuelas_idToro" class="java.lang.Integer"/>
+	<field name="stockpajuelas_Stock" class="java.lang.Integer"/>
+	<field name="toro_Nombre" class="java.lang.String"/>
+	<field name="toro_RP" class="java.lang.Integer"/>
+	<field name="toro_HBP" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="210" y="23" width="179" height="34" uuid="3a4900de-f480-4689-bc10-8f80bd9a034e"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[STOCK PAJUELAS]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="2" width="54" height="20" uuid="3c1c794d-fa5c-48fa-8e3e-8d3105ec0a70"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="2" width="75" height="20" uuid="1a06aed4-3392-4a57-9ca5-c222f3964448"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Toro-id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="2" width="68" height="20" uuid="47ab2b5e-84c3-47d1-a05d-e850fe59ff65"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="2" width="75" height="20" uuid="6d1e0991-ebf5-47d5-b680-5918c93f7ff9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="2" width="55" height="20" uuid="cb0bb944-d758-4f33-ae43-a3d39ead5a58"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="2" width="100" height="20" uuid="8bfffe08-0e6b-4803-81cc-9edc6bec83f9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[HBP]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="9" y="3" width="54" height="20" uuid="db1cfb79-c5f3-497a-84bd-934f0d75683f"/>
+				<textFieldExpression><![CDATA[$F{stockpajuelas_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="3" width="75" height="20" uuid="73122bfb-c52d-49a6-9338-4d58a02fd228"/>
+				<textFieldExpression><![CDATA[$F{stockpajuelas_idToro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="3" width="68" height="20" uuid="6f3a46a2-0cb6-4fec-a351-bbaf1916b63f"/>
+				<textFieldExpression><![CDATA[$F{stockpajuelas_Stock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="3" width="100" height="20" uuid="10294441-5bef-478f-aeb6-bc40d8c3988f"/>
+				<textFieldExpression><![CDATA[$F{toro_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="3" width="56" height="20" uuid="4ae23a8e-ee33-46e7-a1a5-1fce8c40fed0"/>
+				<textFieldExpression><![CDATA[$F{toro_RP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="11" width="100" height="20" uuid="bc456cd5-1844-4d42-a9be-efc838945d86"/>
+				<textFieldExpression><![CDATA[$F{toro_HBP}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="2" width="80" height="20" uuid="386d70a1-7517-4b5f-8ff8-13e05ff5195c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="358" y="22" width="40" height="20" uuid="b301fd44-e326-4df2-84d7-54a765ddd426"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
